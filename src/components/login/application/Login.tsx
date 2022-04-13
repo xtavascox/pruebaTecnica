@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { getAuth } from '../../../actions/auth';
 
-import { loginAuth } from '../infrastructure/loginInfra';
 
 type FormData = {
     user: string
@@ -9,10 +10,11 @@ type FormData = {
 
 export const Login = () => {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ mode: 'onBlur' })
+    const dispatch = useDispatch();
+    const { register, handleSubmit, formState: { errors } } = useForm<FormData>({ mode: 'onBlur' });
+
     const onSubmit: SubmitHandler<FormData> = async ({ user, password }) => {
-        const access = await loginAuth({ user, password });
-        console.log(access.DataBeanProperties.ObjectValue.DataBeanProperties.msg);
+        dispatch(getAuth(user, password))
     }
 
     return (
@@ -29,6 +31,8 @@ export const Login = () => {
                             className='login__body__item__input'
                             placeholder='Ingresa tu correo'
                             autoComplete='off'
+                            autoFocus
+                            defaultValue='capacitacion@gmail.com'
                             {...register("user", {
                                 required: {
                                     value: true,
@@ -47,6 +51,7 @@ export const Login = () => {
                         <input type="password"
                             className='login__body__item__input'
                             placeholder='Ingresa tu contraseña'
+                            defaultValue='Brunofernando123*'
                             {...register("password", {
                                 required: {
                                     value: true,
@@ -66,9 +71,9 @@ export const Login = () => {
                         />
                         {errors.password && <span>{errors.password.message}</span>}
                     </div>
+                    <button type='submit' className='btn btn--primay'>Login</button>
                 </section>
 
-                <button type='submit' className='btn btn--primay'>Login</button>
             </form>
 
 
