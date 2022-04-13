@@ -19,7 +19,7 @@ export interface ObjectValue {
 
 export interface ObjectValueDataBeanProperties {
     msg:        string;
-    Account:    Account;
+    Account?:    Account;
     IDDocument: null;
     IDSession:  number;
     bloqueado:  boolean;

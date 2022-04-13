@@ -51,20 +51,23 @@ ul {
   padding: 0px;
 }
 
-
-.btn{
+.btn {
   width: 20rem;
   padding: 1rem;
   border-radius: 1rem;
-  background-color:$primary;
+  background-color: $primary;
   outline: none;
-  border: 2px solid lighten($color: $secondary, $amount:5);
+  border: 2px solid lighten($color: $secondary, $amount: 5);
   color: $secondary;
   font-size: 2rem;
-
-  transition: all .1s ease-in-out;
-
-  &:active{
+  cursor: pointer;
+  transition: all .4s ease-in-out;
+  &:active {
+    background-color: white;
+    color: $primary;
+    box-shadow: inset 0px 0px 5px 3px darken($color: #ffffff, $amount: 15);
+  }
+  &:hover {
     background-color: white;
     color: $primary;
   }

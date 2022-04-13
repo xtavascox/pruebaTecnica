@@ -10,7 +10,7 @@
   justify-content: center;
   text-align: center;
   align-items: center;
-  background-color: darken($color: $secondary, $amount: 10);
+  background-color: darken($color: $secondary, $amount: 0);
   max-width: 35rem;
   border-radius: 1rem;
   min-height: 35rem;
@@ -37,10 +37,19 @@
   outline: none;
   opacity: .7;
   transition: all .5s ease;
+  margin-bottom: 1rem;
 
   &:focus{
       opacity: 1;
-      font-size: 2rem;
-  }
-  
+      transform: scale(1.1);
+  } 
+}
+
+.formErrorMsg{
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-weight: 400;
+  color: $red;
+  margin-top: 1rem;
+  text-align: left;
 }

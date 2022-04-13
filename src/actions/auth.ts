@@ -3,8 +3,11 @@ import { type } from "../types/types";
 import { loginAuth } from "../components/login/infrastructure/loginInfra";
 import Swal from "sweetalert2";
 
+
+
+
 export const getAuth = (user: string, password: string) => {
-  return async (dispatch: any) => {
+    return async (dispatch: any) => {
     const resp = await loginAuth({ user, password });
     
     if (resp.status === 200) {
