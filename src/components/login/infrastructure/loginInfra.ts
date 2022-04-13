@@ -5,10 +5,11 @@ interface User {
   user: string;
   password: string;
 }
-const baseUrl = "http://adminco.orangecloud.com.co/jsserver";
+const baseUrl = process.env.REACT_APP_LOGIN;
 
 export const loginAuth = async ({ user, password }: User) => {
-  const { data } = await axios.request<RespLog>({
+    
+  const resp = await axios.request<RespLog>({
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -28,5 +29,5 @@ export const loginAuth = async ({ user, password }: User) => {
     url: baseUrl,
     method: "POST",
   });
-  return data;
+  return resp;
 };
