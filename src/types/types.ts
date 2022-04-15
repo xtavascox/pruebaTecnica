@@ -1,4 +1,7 @@
 export const type = {
   login: "[auth] Login",
-  logout: "[auth] Logout",
+
+  edit: "[update] edit",
+  delete: "[update] delete",
+  create: "[update] create",
 };

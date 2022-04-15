@@ -20,6 +20,9 @@ export const ItemTable: FC<Props> = ({ Descripcion, Estado, Nombre, IDPropiedade
     const handleLook = (id: number) => {
         navigate(`/dashboard/propiedad/${id}`)
     }
+    const handleEdit=(id:number)=>{
+        navigate(`/dashboard/editar/${id}`)
+    }
 
     return (
         <tr key={IDPropiedades} className='dashboard__container__table__body__row'>
@@ -37,7 +40,8 @@ export const ItemTable: FC<Props> = ({ Descripcion, Estado, Nombre, IDPropiedade
                 </button>
             </td>
             <td>
-                <button className='btn btn--table btn--edit'>
+                <button className='btn btn--table btn--edit'
+                onClick={()=>handleEdit(IDPropiedades)}>
                     <span>
                         <img src={edit} alt="" />
                     </span>
