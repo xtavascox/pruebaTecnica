@@ -1,6 +1,7 @@
 import { Actions } from '../actions/interface';
 import {type} from '../types/types'
 import { ObjectValueDataBeanProperties} from '../components/login/domain/interface';
+
 const initialState:ObjectValueDataBeanProperties={
     msg: '',
     IDDocument: null,

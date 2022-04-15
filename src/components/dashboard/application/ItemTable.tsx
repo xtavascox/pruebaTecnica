@@ -5,6 +5,8 @@ import look from "../../../assets/search_black_24dp.svg";
 import edit from "../../../assets/edit_black_24dp.svg";
 import garbage from '../../../assets/delete_black_24dp.svg'
 import { deleteProp } from '../infrastructure/deleteProp';
+import { useDispatch } from 'react-redux';
+import { deletePropsRedux } from '../../../actions/update';
 
 interface Props {
     Descripcion: string,
@@ -17,15 +19,15 @@ interface Props {
 export const ItemTable: FC<Props> = ({ Descripcion, Estado, Nombre, IDPropiedades, Since, Valor }) => {
 
     const navigate = useNavigate()
-
+    const dispatch = useDispatch()
     const handleLook = (id: number) => {
         navigate(`/dashboard/propiedad/${id}`)
     }
-    const handleEdit=(id:number)=>{
+    const handleEdit = (id: number) => {
         navigate(`/dashboard/editar/${id}`)
     }
-    const handleDelete=async(id:number)=>{
-        await deleteProp(id)
+    const handleDelete = async (id: number) => {
+        dispatch(deletePropsRedux(id))
     }
 
     return (
@@ -45,15 +47,15 @@ export const ItemTable: FC<Props> = ({ Descripcion, Estado, Nombre, IDPropiedade
             </td>
             <td>
                 <button className='btn btn--table btn--edit'
-                onClick={()=>handleEdit(IDPropiedades)}>
+                    onClick={() => handleEdit(IDPropiedades)}>
                     <span>
                         <img src={edit} alt="" />
                     </span>
                 </button>
             </td>
             <td>
-                <button className='btn btn--table btn--delete ' 
-                onClick={()=>handleDelete(IDPropiedades)}
+                <button className='btn btn--table btn--delete '
+                    onClick={() => handleDelete(IDPropiedades)}
                 >
                     <span>
                         <img src={garbage} alt="" />

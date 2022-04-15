@@ -10,7 +10,7 @@ interface Body {
 }
 
 export const createProp = async (body: Body) => {
-  await axios.request({
+  const resp=await axios.request({
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -37,4 +37,5 @@ export const createProp = async (body: Body) => {
     url: process.env.REACT_APP_ENDPOINT,
     method: "POST",
   });
+  return resp
 };

@@ -1,27 +1,20 @@
 import { Actions } from "../actions/interface";
 import { type } from "../types/types";
 
-const initialState = {
-  Nombre: "",
-  IDPropiedades: null,
-  Descripcion: "",
-  Valor: "",
-  Estado: null,
-  atributo:""
-};
-
-export const updateReducer = (state = initialState, action:Actions)=> {
+export const updateReducer = (state = [], action: Actions) => {
   switch (action.type) {
-      
-    case type.edit:
+    case type.create:
+      return [...state, action.payload];
+
+    case type.init:
       return action.payload;
 
-    case type.create:
-        return action.payload
-
     case type.delete:
-        return action.payload
-    
+      const result = state.filter(
+        (item: any) => item.DataBeanProperties.IDPropiedades !== action.payload
+      );
+      return result;
+
     default:
       return state;
   }

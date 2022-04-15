@@ -1,17 +1,21 @@
-import { getInfoProps } from '../infrastructure/getInfoProps';
-import { useEffect, useState } from 'react';
-import { ObjectValue } from '../domain/interface';
+
+import { useEffect } from 'react';
+
 import { ItemTable } from './ItemTable';
 import { CreateProp } from './CreateProp';
+import { useDispatch, useSelector } from 'react-redux';
+import { initPropsRedux } from '../../../actions/update';
+import { RootState } from '../../../store/store';
 
 export const Dashboard = () => {
 
-  const [props, setProps] = useState<ObjectValue[]>([])
+  const dispatch = useDispatch()
+
   useEffect(() => {
-    getInfoProps().then((resp) => setProps(resp))
-  }, [])
+    dispatch(initPropsRedux())
+  }, [dispatch])
 
-
+  const state: any = useSelector((state: RootState) => state.update)
 
   return (
     <div>
@@ -32,10 +36,9 @@ export const Dashboard = () => {
             </thead>
             <tbody className='dashboard__container__table__body' >
               {
-                props.map(({ DataBeanProperties }) => {
-                  return (
-                    <ItemTable key={DataBeanProperties.IDPropiedades} {...DataBeanProperties} />
-                  )
+                state.map(({ DataBeanProperties }: any) => {
+
+                  return (<ItemTable key={DataBeanProperties.IDPropiedades} {...DataBeanProperties} />)
                 })
               }
             </tbody>
