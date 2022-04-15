@@ -1,6 +1,8 @@
 
 import { useForm, SubmitHandler } from 'react-hook-form';
-import {createProp} from '../infrastructure/createProp'
+import { createProp } from '../infrastructure/createProp'
+import { useDispatch } from 'react-redux';
+import { createPropRedux } from '../../../actions/update';
 type FormData = {
     nombre: string | undefined
     descripcion: string | undefined,
@@ -11,8 +13,8 @@ type FormData = {
 
 
 export const CreateProp = () => {
-
-    const { register, handleSubmit, formState: { errors } } = useForm<FormData>()
+    const dispatch = useDispatch();
+    const { register, handleSubmit, formState: { errors }, reset } = useForm<FormData>()
 
     const onSubmit: SubmitHandler<FormData> = async (changes) => {
 
@@ -22,10 +24,11 @@ export const CreateProp = () => {
             Valor: changes.valor,
             Estado: changes.estado,
             IDPerfilBanco: changes.idBanco,
-            IDPropiedades:null,
-            Since:null
-        }
-      await createProp(body)
+            IDPropiedades: null,
+            Since: null
+        };
+        dispatch(createPropRedux(body));
+        reset();
     }
     return (
         <form className='createProp'

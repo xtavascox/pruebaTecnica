@@ -2,8 +2,11 @@ import axios from "axios";
 import { RespProps } from "../domain/interface";
 
 export const getInfoProps = async () => {
-  
-      const {data:{DataBeanProperties:{ObjectValue}}} = await axios.request<RespProps>({
+  const {
+    data: {
+      DataBeanProperties: { ObjectValue },
+    },
+  } = await axios.request<RespProps>({
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -15,7 +18,7 @@ export const getInfoProps = async () => {
           WSToken: "$#HHJGUYUHSDFGS546546DFH654SGHUJJFF==",
           MethodHash:
             "java.util.List_getPropiedadesCatalogPorPropiedad_String_Object_Number",
-          ArgumentList: [null, null, null]
+          ArgumentList: [null, null, null],
         });
         return data;
       },
@@ -24,6 +27,5 @@ export const getInfoProps = async () => {
     method: "POST",
   });
 
-  
   return ObjectValue;
 };
