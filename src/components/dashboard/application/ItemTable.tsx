@@ -1,9 +1,9 @@
 import { FC } from 'react'
 import { useNavigate } from 'react-router-dom';
 
-import look from "../../assets/search_black_24dp.svg";
-import edit from "../../assets/edit_black_24dp.svg";
-import garbage from '../../assets/delete_black_24dp.svg'
+import look from "../../../assets/search_black_24dp.svg";
+import edit from "../../../assets/edit_black_24dp.svg";
+import garbage from '../../../assets/delete_black_24dp.svg'
 
 interface Props {
     Descripcion: string,

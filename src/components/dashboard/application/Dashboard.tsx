@@ -1,7 +1,7 @@
 import { getInfoProps } from '../infrastructure/getInfoProps';
 import { useEffect, useState } from 'react';
 import { ObjectValue } from '../domain/interface';
-import { ItemTable } from '../ItemTable';
+import { ItemTable } from './ItemTable';
 
 export const Dashboard = () => {
 
