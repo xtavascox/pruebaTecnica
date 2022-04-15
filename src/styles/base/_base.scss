@@ -72,3 +72,28 @@ ul {
     color: $primary;
   }
 }
+
+.btn--table{
+  height: 5rem;
+  width: 7rem;
+}
+
+.btn--edit{
+  background-color: $yellow;
+  &:hover{
+    background-color: darken($color: $yellow, $amount: 20);
+  }
+}
+.btn--delete{
+  background-color: $red;
+  &:hover{
+    background-color: darken($color: $red, $amount: 20);
+  }
+}
+.btn--look{
+  background-color: $green;
+  &:hover{
+    background-color: darken($color: $green, $amount: 20);
+  }
+}
+

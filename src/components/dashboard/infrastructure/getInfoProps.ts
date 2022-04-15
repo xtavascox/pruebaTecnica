@@ -1,15 +1,9 @@
 import axios from "axios";
-import { RespLog } from "../domain/interface";
+import { RespProps } from "../domain/interface";
 
-interface User {
-  user: string;
-  password: string;
-}
-
-
-export const loginAuth = async ({ user, password }: User) => {
-    
-  const resp = await axios.request<RespLog>({
+export const getInfoProps = async () => {
+  
+      const {data:{DataBeanProperties:{ObjectValue}}} = await axios.request<RespProps>({
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -20,8 +14,8 @@ export const loginAuth = async ({ user, password }: User) => {
           ServiceName: "AdminService",
           WSToken: "$#HHJGUYUHSDFGS546546DFH654SGHUJJFF==",
           MethodHash:
-            "com.advantage.bean.account.WorkSession_loguinUsuarioWS_String_String",
-          ArgumentList: [user, password],
+            "java.util.List_getPropiedadesCatalogPorPropiedad_String_Object_Number",
+          ArgumentList: [null, null, null]
         });
         return data;
       },
@@ -29,5 +23,7 @@ export const loginAuth = async ({ user, password }: User) => {
     url: process.env.REACT_APP_ENDPOINT,
     method: "POST",
   });
-  return resp;
+
+  
+  return ObjectValue;
 };
