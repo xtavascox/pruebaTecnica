@@ -4,10 +4,19 @@ export interface RespProps {
     DataBeanProperties: RespPropsDataBeanProperties;
     DataBeanName:       string;
 }
-
+export interface RespProp {
+    DataBeanProperties: RespPropsDataBeanProperty;
+    DataBeanName:       string;
+}
 export interface RespPropsDataBeanProperties {
     Type:        number;
-    ObjectValue: ObjectValue[];
+    ObjectValue: ObjectValue[] ;
+    ClassName:   string;
+    Date:        string;
+}
+export interface RespPropsDataBeanProperty{
+    Type:        number;
+    ObjectValue: ObjectValue;
     ClassName:   string;
     Date:        string;
 }
