@@ -1,12 +1,8 @@
 import axios from "axios";
-import { RespProps } from "../domain/interface";
+import { RespProp } from '../domain/interface';
 
-export const getInfoProps = async () => {
-  const {
-    data: {
-      DataBeanProperties: { ObjectValue },
-    },
-  } = await axios.request<RespProps>({
+export const getInfoPropById = async (id: string="") => {
+  const {data:{DataBeanProperties:{ObjectValue}}} = await axios.request<RespProp>({
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
@@ -16,9 +12,8 @@ export const getInfoProps = async () => {
           IDClient: "$#HHJGUY9773H5MNKD65389745KJDFGDGG==",
           ServiceName: "AdminService",
           WSToken: "$#HHJGUYUHSDFGS546546DFH654SGHUJJFF==",
-          MethodHash:
-            "java.util.List_getPropiedadesCatalogPorPropiedad_String_Object_Number",
-          ArgumentList: [null, null, null],
+          MethodHash: "com.admin.bean.Propiedades_getPropiedades_Number",
+          ArgumentList: [id],
         });
         return data;
       },
@@ -26,6 +21,5 @@ export const getInfoProps = async () => {
     url: process.env.REACT_APP_ENDPOINT,
     method: "POST",
   });
-
   return ObjectValue;
 };
