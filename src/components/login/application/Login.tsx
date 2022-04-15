@@ -41,7 +41,7 @@ export const Login = () => {
                             className='login__body__item__input'
                             placeholder='Correo@gmail.com'
                             autoComplete='off'
-                            // defaultValue='capacitacion@gmail.com'
+                            defaultValue='capacitacion@gmail.com'
                             {...register("user", {
                                 required: {
                                     value: true,
@@ -60,7 +60,7 @@ export const Login = () => {
                         <input type="password"
                             className='login__body__item__input'
                             placeholder='Ingresa tu contraseña'
-                            //defaultValue='Brunofernando123*'
+                            defaultValue='Brunofernando123*'
                             {...register("password", {
                                 required: {
                                     value: true,

@@ -61,7 +61,7 @@ ul {
   color: $secondary;
   font-size: 2rem;
   cursor: pointer;
-  transition: all .4s ease-in-out;
+  transition: all 0.4s ease-in-out;
   &:active {
     background-color: white;
     color: $primary;
@@ -71,4 +71,36 @@ ul {
     background-color: white;
     color: $primary;
   }
+}
+
+.btn--table {
+  height: 5rem;
+  width: 7rem;
+}
+
+.btn--edit {
+  background-color: $yellow;
+  &:hover {
+    background-color: darken($color: $yellow, $amount: 20);
+  }
+}
+.btn--delete {
+  background-color: $red;
+  &:hover {
+    background-color: darken($color: $red, $amount: 20);
+  }
+}
+.btn--look {
+  background-color: $green;
+  &:hover {
+    background-color: darken($color: $green, $amount: 20);
+  }
+}
+
+.btn--form {
+  color: $gray;
+  grid-column: 1/3;
+  margin: 1rem auto;
+  height: 7rem;
+  width: 50rem;
 }
