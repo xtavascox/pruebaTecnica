@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import look from "../../../assets/search_black_24dp.svg";
 import edit from "../../../assets/edit_black_24dp.svg";
 import garbage from '../../../assets/delete_black_24dp.svg'
+import { deleteProp } from '../infrastructure/deleteProp';
 
 interface Props {
     Descripcion: string,
@@ -22,6 +23,9 @@ export const ItemTable: FC<Props> = ({ Descripcion, Estado, Nombre, IDPropiedade
     }
     const handleEdit=(id:number)=>{
         navigate(`/dashboard/editar/${id}`)
+    }
+    const handleDelete=async(id:number)=>{
+        await deleteProp(id)
     }
 
     return (
@@ -48,7 +52,9 @@ export const ItemTable: FC<Props> = ({ Descripcion, Estado, Nombre, IDPropiedade
                 </button>
             </td>
             <td>
-                <button className='btn btn--table btn--delete'>
+                <button className='btn btn--table btn--delete ' 
+                onClick={()=>handleDelete(IDPropiedades)}
+                >
                     <span>
                         <img src={garbage} alt="" />
                     </span>
