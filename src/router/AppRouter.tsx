@@ -6,7 +6,8 @@ import {
 import { useSelector } from 'react-redux';
 import { RootState } from '../store/store';
 
-import { Dashboard, Login,LookProp } from "../components";
+import { Dashboard, Login,LookProp,EditProp } from "../components";
+
 
 
 export const AppRouter = () => {
@@ -18,6 +19,7 @@ export const AppRouter = () => {
                     {auth.bloqueado && <Route path="/" element={<Login />} />}
                     {!auth.bloqueado &&<Route path="/dashboard" element={<Dashboard />} />}
                     {!auth.bloqueado &&<Route path="/dashboard/propiedad/:id" element={<LookProp />} />}
+                    {!auth.bloqueado &&<Route path="/dashboard/editar/:id" element={<EditProp />} />}
 
                     <Route path="*" element={<Login/>}/>
                     

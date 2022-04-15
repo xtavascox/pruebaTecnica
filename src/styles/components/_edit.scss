@@ -1,0 +1,21 @@
+.edit__titulo{
+    color: lighten($color: $primary, $amount: 10);
+    font-weight: 500;
+}
+
+.edit__input{
+    font-size: 2rem;
+    height: 4rem;
+    width: 100%;
+    margin: auto;
+    background-color: $whiteBackGround;
+    transition: all .4s ease;
+    outline: none;
+    border: none;
+    border-radius: 1rem;
+
+    &:focus{
+        background-color: lighten($color: $darkGray, $amount: 60);
+        color: lighten($color: $primary, $amount: 10);
+    }
+}
